@@ -2,13 +2,9 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/access/AccessControl.sol";
+import "openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
+import "openzeppelin-contracts/contracts/access/AccessControl.sol";
 
-/**
-* @title SampleERC20
-* @dev Create a sample ERC20 standard token
-*/
 contract SampleToken is ERC20, AccessControl {
         bytes32 public constant MINTERROLE = keccak256("MINTERROLE");
         bytes32 public constant BURNERROLE = keccak256("BURNERROLE");
@@ -16,6 +12,7 @@ contract SampleToken is ERC20, AccessControl {
     constructor(string memory tokenName, string memory tokenSymbol, uint totalSupply) ERC20(tokenName, tokenSymbol) {
         _mint(msg.sender, totalSupply);
         _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+
     }
 
     function mint(address _to, uint _amount) public {

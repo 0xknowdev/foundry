@@ -2,13 +2,9 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
 import "./SampleToken.sol";
 
-/**
-* @title SampleERC20
-* @dev Create a sample ERC20 standard token
-*/
 contract StakingToken is ERC20 {
 
     uint public deployTimestamp;
@@ -35,5 +31,4 @@ contract StakingToken is ERC20 {
         require(from == address(0) || to == address(0), "Staking: Transfer is not possible");
         super._beforeTokenTransfer(from, to, amount);
     }
-
 }
